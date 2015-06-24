@@ -1,0 +1,79 @@
+
+<!--
+Copyright (c) 2014-2015 Dirk Grappendorf, www.grappendorf.net. All rights reserved.
+This code may only be used under the MIT style license found in the file LICENSE.txt.
+
+Element: grapp-template-ref
+Version: 0.0.0
+Description: 
+-->
+
+
+<link href="../polymer/polymer.html" rel="import">
+
+<dom-module id="grapp-template-ref">
+
+<script type="text/javascript">(function() {
+  Polymer({
+    is: 'grapp-template-ref',
+    properties: {
+      ref: {
+        type: String,
+        observer: '_refChanged'
+      },
+      bind: {
+        type: Object,
+        observer: '_bindChanged'
+      }
+    },
+    attached: function() {
+      return this._stamp();
+    },
+    detached: function() {
+      return this._removeChildren();
+    },
+    _refChanged: function(newRef, oldRef) {
+      if (oldRef) {
+        this._removeChildren();
+        return this._stamp();
+      }
+    },
+    _bindChanged: function(newBind, oldBind) {
+      if (this.oldBind) {
+        this._removeChildren();
+        return this._stamp();
+      }
+    },
+    _stamp: function() {
+      var root, template, templateRoot;
+      this._parent = Polymer.dom(this).parentNode;
+      root = this._parent;
+      while (Polymer.dom(root).parentNode) {
+        root = Polymer.dom(root).parentNode;
+      }
+      template = Polymer.dom(root).querySelector("template#" + this.ref);
+      if (!template) {
+        template = document.querySelector("template#" + this.ref);
+      }
+      templateRoot = template.stamp(this.bind).root;
+      this._children = Array.prototype.slice.call(templateRoot.childNodes);
+      return Polymer.dom(this._parent).insertBefore(templateRoot, this);
+    },
+    _removeChildren: function() {
+      var child, i, len, ref, results;
+      if (this._children) {
+        ref = this._children;
+        results = [];
+        for (i = 0, len = ref.length; i < len; i++) {
+          child = ref[i];
+          results.push(Polymer.dom(this._parent).removeChild(child));
+        }
+        return results;
+      }
+    }
+  });
+
+}).call(this);
+</script>
+
+</dom-module>

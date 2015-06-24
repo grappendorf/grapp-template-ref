@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>grapp-template-ref web component</title>
+  <script src='lib/webcomponentsjs/webcomponents-lite.min.js'></script>
+  <link href="build/grapp-template-ref.html" rel="import">
+</head>
+
+<body>
+
+  <h1>grapp-template-ref web component</h1>
+
+  <h2>A workaround for the missing template ref functionality in Polymer 1.0</h2>
+
+  <p>
+    Based on the code published by
+    <a href="http://stackoverflow.com/users/711902/trevor-dixon">Trevor Dixon</a>
+    in his answer to the Stack Overflow question
+    <a href="http://stackoverflow.com/questions/30516697/polymer-1-0-template-bind-ref-equivalent">
+      "Polymer 1.0 template bind ref equivalent"
+    </a>
+  </p>
+
+  <p>
+    <a href="test/index.html">Click here to run the tests...</a>
+  </p>
+
+  <p>
+    <a href="README.md">Click here to read the documentation...</a>
+  </p>
+
+  <p>
+    <a href="CHANGELOG.md">Click here to read the changelog...</a>
+  </p>
+
+  <h2>Demo</h2>
+
+  <template is="dom-template" id="sayHello">
+    <div>Hello <span>[[name]]</span>!</div>
+  </template>
+
+  <template is="dom-bind">
+
+    <template is="dom-repeat" items='[{"name":"alice"}, {"name":"bob"}, {"name":"carol"}]'>
+      <grapp-template-ref ref="sayHello" bind="[[item]]"></grapp-template-ref>
+    </template>
+
+  </template>
+
+  <script src="//localhost:35729/livereload.js"></script>
+
+</body>

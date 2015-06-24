@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>telcat-data-table basic tests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <script src='../lib/webcomponentsjs/webcomponents-lite.min.js'></script>
+  <script src="../lib/web-component-tester/browser.js"></script>
+  <script src="../lib/coffee-script/extras/coffee-script.js"></script>
+
+  <link href="../build/grapp-template-ref.html" rel="import">
+</head>
+
+<body>
+
+  <template is="dom-template" id="template"><span>the template content</span></template>
+  <grapp-template-ref ref="template" id="template-ref"></grapp-template-ref>
+
+  <template is="dom-template" id="template-bind"><span>[[key]]</span></template>
+  <grapp-template-ref ref="template-bind" id="template-bind-ref" bind='{"key":"value"}'></grapp-template-ref>
+
+  <script type="text/coffeescript">
+
+    describe 'template stamping', ->
+
+      it 'should instantiate the template dom', ->
+        element = document.querySelector '#template-ref'
+        expect(element.previousSibling.innerText).to.equal 'the template content'
+
+    describe 'template binding', ->
+
+      it 'should bind the template to the specified object', ->
+        element = document.querySelector '#template-bind-ref'
+        expect(element.previousSibling.innerText).to.equal 'value'
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+{
+  "name": "grapp-template-ref",
+  "description": "",
+  "version": "0.0.0",
+  "main": "grapp-template-ref.html",
+  "license": "MIT",
+  "ignore": [
+    "bin",
+    "build",
+    "lib",
+    "node_modules",
+    "src",
+    "test",
+    "tmpl",
+    "package.json",
+    "**/.*",
+    "**/*.log",
+    "**/*.sublime-*"
+  ],
+  "keywords": [
+    "web-components",
+    "polymer",
+    "grappendorf"
+  ],
+  "authors": [
+    "Dirk Grappendorf <dirk@grappendorf.net> (http://www.grappendorf.net)"
+  ],
+  "homepage": "https://github.com/grappendorf/grapp-template-ref",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/grappendorf/grapp-template-ref.git"
+  },
+  "dependencies": {
+    "polymer": "Polymer/polymer#~1.0.0"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#3.1.7",
+    "jquery": "2.1.4",
+    "coffee-script": "1.9.3"
+  }
+}
