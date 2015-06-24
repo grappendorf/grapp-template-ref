@@ -39,7 +39,7 @@ Description:
       }
     },
     _bindChanged: function(newBind, oldBind) {
-      if (this.oldBind) {
+      if (oldBind) {
         this._removeChildren();
         return this._stamp();
       }

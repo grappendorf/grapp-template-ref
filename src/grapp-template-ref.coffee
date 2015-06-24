@@ -18,7 +18,7 @@ Polymer
       @_stamp()
 
   _bindChanged: (newBind, oldBind) ->
-    if @oldBind
+    if oldBind
       @_removeChildren()
       @_stamp()
 
