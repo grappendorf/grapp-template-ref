@@ -30,7 +30,7 @@ Polymer
     template = Polymer.dom(root).querySelector "template##{@ref}"
     unless template
       template = document.querySelector "template##{@ref}"
-    templateRoot = template.stamp(@bind).root
+    templateRoot = (new template.ctor(@bind, template)).root
     @_children = Array.prototype.slice.call templateRoot.childNodes
     Polymer.dom(@_parent).insertBefore templateRoot, @
 

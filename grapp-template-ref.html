@@ -55,7 +55,7 @@ Description:
       if (!template) {
         template = document.querySelector("template#" + this.ref);
       }
-      templateRoot = template.stamp(this.bind).root;
+      templateRoot = (new template.ctor(this.bind, template)).root;
       this._children = Array.prototype.slice.call(templateRoot.childNodes);
       return Polymer.dom(this._parent).insertBefore(templateRoot, this);
     },
