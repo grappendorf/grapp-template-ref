@@ -5,6 +5,7 @@ Polymer
   properties:
     ref: {type: String, observer: '_refChanged'}
     bind: {type: Object, observer: '_bindChanged'}
+    as: {type: String, observer: '_bindChanged'}
 
   attached: ->
     @_stamp()
@@ -30,7 +31,9 @@ Polymer
     template = Polymer.dom(root).querySelector "template##{@ref}"
     unless template
       template = document.querySelector "template##{@ref}"
-    templateRoot = (new template.ctor(@bind, template)).root
+    bind = {}
+    if @as then bind[@as] = @bind else bind = @bind
+    templateRoot = (new template.ctor(bind, template)).root
     @_children = Array.prototype.slice.call templateRoot.childNodes
     Polymer.dom(@_parent).insertBefore templateRoot, @
 
