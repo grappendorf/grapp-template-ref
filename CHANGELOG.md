@@ -1,3 +1,12 @@
+<a name="0.0.3"></a>
+### 0.0.3 (2015-08-05)
+
+
+#### Bug Fixes
+
+* Replace stamp() with constructor call. ([09aa9479](http://github.com/grappendorf/grapp-template-ref/commit/09aa94797e852770bc3408da8d010ebd08dc8a82))
+
+
 <a name="0.0.2"></a>
 ### 0.0.2 (2015-06-24)
 
