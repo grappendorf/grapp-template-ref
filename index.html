@@ -42,9 +42,16 @@
 
   <template is="dom-bind">
 
-    <template is="dom-repeat" items='[{"name":"alice"}, {"name":"bob"}, {"name":"carol"}]'>
-      <grapp-template-ref ref="sayHello" bind="[[item]]" as="person"></grapp-template-ref>
-    </template>
+    <p>
+      <template is="dom-repeat" items='[{"name":"alice"}, {"name":"bob"}, {"name":"carol"}]'>
+        <grapp-template-ref ref="sayHello" bind="[[item]]" as="person"></grapp-template-ref>
+      </template>
+    </p>
+
+    <p>
+      <template is="dom-template" id="template-bind"><span>[[key]]</span></template>
+      <grapp-template-ref ref="template-bind" id="template-bind-ref" bind='{"key":"value"}'></grapp-template-ref>
+    </p>
 
   </template>
 
