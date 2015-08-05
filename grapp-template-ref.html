@@ -24,6 +24,10 @@ Description:
       bind: {
         type: Object,
         observer: '_bindChanged'
+      },
+      as: {
+        type: String,
+        observer: '_bindChanged'
       }
     },
     attached: function() {
@@ -45,7 +49,7 @@ Description:
       }
     },
     _stamp: function() {
-      var root, template, templateRoot;
+      var bind, root, template, templateRoot;
       this._parent = Polymer.dom(this).parentNode;
       root = this._parent;
       while (Polymer.dom(root).parentNode) {
@@ -55,7 +59,13 @@ Description:
       if (!template) {
         template = document.querySelector("template#" + this.ref);
       }
-      templateRoot = (new template.ctor(this.bind, template)).root;
+      bind = {};
+      if (this.as) {
+        bind[this.as] = this.bind;
+      } else {
+        bind = this.bind;
+      }
+      templateRoot = (new template.ctor(bind, template)).root;
       this._children = Array.prototype.slice.call(templateRoot.childNodes);
       return Polymer.dom(this._parent).insertBefore(templateRoot, this);
     },
