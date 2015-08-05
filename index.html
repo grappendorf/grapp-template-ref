@@ -37,13 +37,13 @@
   <h2>Demo</h2>
 
   <template is="dom-template" id="sayHello">
-    <div>Hello <span>[[name]]</span>!</div>
+    <div>Hello <span>[[person.name]]</span>!</div>
   </template>
 
   <template is="dom-bind">
 
     <template is="dom-repeat" items='[{"name":"alice"}, {"name":"bob"}, {"name":"carol"}]'>
-      <grapp-template-ref ref="sayHello" bind="[[item]]"></grapp-template-ref>
+      <grapp-template-ref ref="sayHello" bind="[[item]]" as="person"></grapp-template-ref>
     </template>
 
   </template>

@@ -26,3 +26,12 @@ Properties
     - *default:* undefined
   
     The object that should be bound the template.
+
+  * **as**
+
+    - *type:* String
+    - *default:* undefined
+    
+    If specified, the **bind** object is made accessible under the key **as**
+    in the template scope. If undefined, the **bind** object directly becomes
+    the template scope.
