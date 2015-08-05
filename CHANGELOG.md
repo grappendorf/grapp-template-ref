@@ -1,3 +1,12 @@
+<a name="0.0.4"></a>
+### 0.0.4 (2015-08-06)
+
+
+#### Features
+
+* Add an 'as' attribute for binding the template data under a given name. ([f75f632a](http://github.com/grappendorf/grapp-template-ref/commit/f75f632a39280b9e39b838a81b214db65d9650b9))
+
+
 <a name="0.0.3"></a>
 ### 0.0.3 (2015-08-05)
 
