@@ -1,3 +1,17 @@
+<a name="0.1.0"></a>
+## 0.1.0 (2015-08-06)
+
+
+#### Bug Fixes
+
+* Replace stamp() with constructor call. Resolves #1. ([682da66f](http://github.com/grappendorf/grapp-template-ref/commit/682da66f1718b34101c8462be0969ebdb8a3a510))
+
+
+#### Features
+
+* Add an 'as' attribute for binding the template data under a given name. ([9dad9849](http://github.com/grappendorf/grapp-template-ref/commit/9dad9849652de33f89fb415ededf4356eb645720))
+
+
 <a name="0.0.5"></a>
 ### 0.0.5 (2015-08-06)
 
