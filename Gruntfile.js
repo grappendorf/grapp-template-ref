@@ -126,6 +126,19 @@ module.exports = function(grunt) {
       }
     },
 
+    'wct-test': {
+      local: {
+        options: {
+          remote: false,
+          plugins: {
+            local: {
+              browsers: ['chrome']
+            }
+          }
+        }
+      }
+    },
+
     shell: {
       test: {
         command: 'xvfb-run -a ./bin/grunt wct-test'
@@ -145,29 +158,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-html-build');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-text-replace');
+  grunt.loadNpmTasks('web-component-tester');
 
   grunt.registerTask('build', 'Compile all assets and create the distribution files',
     ['less', 'coffeelint', 'coffee', 'htmlbuild', 'replace']);
-
-  grunt.registerTask('wct-test', function() {
-    var
-        done = this.async(),
-        wct = require('web-component-tester'),
-        options = {
-          remote: false,
-          persistent: false,
-          root: '.',
-          plugins: {
-            local: {
-              browsers: ['chrome']
-            }
-          }
-        };
-    wct.test(options, function() {
-      done();
-      process.exit(0);
-    });
-  });
 
   grunt.registerTask('test', 'Test the web application', ['shell:test']);
 
